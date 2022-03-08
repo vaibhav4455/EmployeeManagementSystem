@@ -24,13 +24,11 @@ public class EmployeeController {
 	public String sayHello() {
 		return "hello from Vaibhav ";
 	}
-	@PostMapping("/add") //json to java object --@RequestBody //spring4
-	//spring will take care transform json to java object(jackson datatype jar )
+	@PostMapping("/add")
 	public Employee addEmployee(@RequestBody Employee employee) {
 		return employeeService.addEmployee(employee);
 		
-	//	return employee;
-		//java-->json-->spring-->jackson		
+
 	}
 	@GetMapping("/employee/{id}")
 	public Employee getEmployeeById(@PathVariable("id") String id) {
@@ -40,6 +38,7 @@ public class EmployeeController {
 	
 	@DeleteMapping("/employee/{id}")
 	public String deleteEmployeeById(@PathVariable("id") String id) {
+
 		return this.employeeService.deleteEmployeeById(id);
 	}
 	@DeleteMapping("/deleteAll")
